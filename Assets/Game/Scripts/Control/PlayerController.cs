@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip switchSound;   // Sound Clip for switching dimension
     public AudioClip dyingSound;    // Sound Clip for dying
 
-    private Rigidbody2D playerRb2D; // Player Rigidbody
+    private Rigidbody playerRb; // Player Rigidbody
     private Animator playerAnim;    // Player Animation for running/jumping/switching
     private AudioSource playerAudi; // Player Audio when running/jumping/switching
 
@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        //audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        playerRb2D = GetComponent<Rigidbody2D>();
+        playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudi = GetComponent<AudioSource>();
         // gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); /* Uncomment it if we have one */
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
-        playerRb2D.velocity = new Vector2(horizontalInput * moveSpeed, playerRb2D.velocity.y);
+        playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
 
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -107,14 +107,14 @@ public class PlayerController : MonoBehaviour
 
     private void Jumping()
     {
-        playerRb2D.velocity = new Vector2(playerRb2D.velocity.x, jumpForce);
+        playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
         // if (playerAudi.isPlaying) // Make sure the audio stops when jumping
         // {
         //     playerAudi.Stop();
         // }
         // playerAnim.SetTrigger("Jump_trigger"); /* Uncomment this if we find running animation */
 
-        audioManager.PlayJumpAudio();
+        //audioManager.PlayJumpAudio();
         
         
     }
