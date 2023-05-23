@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     // public bool resetJump;       // Detect whether player should be able to jump or not/avoid unlimited jumping
     public bool isGameOver = false; // Flag to gameover or not
     public float speedThreshold;    // A Threshold to detect whether it's running or not
+    public SpriteRenderer playerSpriteRen;
     
     // public bool dashing = false;    // Flag to Dash ability               /* Uncomment it if we want to add */
     // public bool doubleJump = true;  // Flag to Double jumping
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         Move();
 
         // Switching
-        // if (Input.GetButtonDown("Switching"))   // Need to add one more button in the control system
+        // if (Input.GetButtonDown("Fire 2"))   // Need to add one more button in the control system
         // {
 
         //     /* some operations here: switching dimension and stuff */
