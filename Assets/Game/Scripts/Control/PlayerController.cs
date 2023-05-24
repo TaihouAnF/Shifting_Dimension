@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         // }
         // playerAnim.SetTrigger("Jump_trigger"); /* Uncomment this if we find running animation */
 
-        //audioManager.PlayJumpAudio();
+        audioManager.PlayJumpAudio();
         
         
     }
