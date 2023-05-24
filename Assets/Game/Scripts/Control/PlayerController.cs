@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
         //     playerAudi.PlayOneShot(switchSound, 1.0f);
         // }
 
-        if (isGameOver)
-        {
+        //if (isGameOver)
+        //{
             /* player Animation when die */
             // if (playerAudi.isPlaying) // Make sure the audio stops when switching
             // {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             // }
             // playerAudi.PlayOneShot(dyingSound, 1.0f);
             // gameManager.GameOver();
-        }
+        //}
     }
 
     private void FreeFall()// calculate the speed of falling, modified by gravity
@@ -105,6 +105,10 @@ public class PlayerController : MonoBehaviour
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
+        if (OnTheGround() && Mathf.Abs(playerRb.velocity.x) > speedThreshold)
+        {
+            //playerAnim.SetTrigger("Run_trigger"); /* Uncomment this if we find running animation */
+        }
 
         // if(Mathf.Abs(playerRb.velocity.y) <=0)
         // {
