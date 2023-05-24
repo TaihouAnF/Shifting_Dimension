@@ -86,11 +86,6 @@ public class PlayerController : MonoBehaviour
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3.5f, 1 << 8))
-        {
-            return true;
-        }
-        return false;
+        return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8);
     }
 }
