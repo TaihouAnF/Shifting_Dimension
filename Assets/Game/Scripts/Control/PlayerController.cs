@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public bool isGameOver = false; // Flag to gameover or not
     public float speedThreshold;    // A Threshold to detect whether it's running or not
     public SpriteRenderer playerSpriteRen;
+    bool ontheground = true;
     
     // public bool dashing = false;    // Flag to Dash ability               /* Uncomment it if we want to add */
     // public bool doubleJump = true;  // Flag to Double jumping
@@ -81,8 +82,13 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
 
+        if(Mathf.Abs(playerRb.velocity.y) <=0)
+        {
+            ontheground = true;
+        }
+
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && ontheground == true)
         {
             print("jump");
             Jumping();
@@ -108,6 +114,7 @@ public class PlayerController : MonoBehaviour
     private void Jumping()
     {
         playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+        ontheground = false;
         // if (playerAudi.isPlaying) // Make sure the audio stops when jumping
         // {
         //     playerAudi.Stop();
@@ -119,10 +126,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    bool IsGrounded()// this is a bool to check if we are touching the ground
-    {
-        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, 1<<8);  
-        return hitinfo.collider != null;
-    }
+   
 
 }
