@@ -19,37 +19,14 @@ public class PlatformController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Real dimension
-        if (!player.GetComponent<PlayerController>().realOrShadow &&
-            !platformRealOrShadow)
-        {
-            Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
-                                meshRenderer.material.color.b, 1f);
-            meshRenderer.material.color = color;
-            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, false);
-        }
-        else if (player.GetComponent<PlayerController>().realOrShadow && 
-            platformRealOrShadow)
-        {
-            Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
-                                meshRenderer.material.color.b, 1f);
-            meshRenderer.material.color = color;
-            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, false);
-        }
-        else if (player.GetComponent<PlayerController>().realOrShadow &&
-            !platformRealOrShadow)
-        {
-            Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
-                                meshRenderer.material.color.b, 0.5f);
-            meshRenderer.material.color = color;
-            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider);
-        }
-        else
-        {
-            Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
-                                meshRenderer.material.color.b, 0.5f);
-            meshRenderer.material.color = color;
-            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider);
-        }
+        bool playerRealOrShadow = player.GetComponent<PlayerController>().realOrShadow;
+        float alphaNow = (playerRealOrShadow == platformRealOrShadow) ? 1.0f : 0.5f;
+
+        Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
+                                meshRenderer.material.color.b, alphaNow);
+        meshRenderer.material.color = color;
+        Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, 
+                                !(playerRealOrShadow == platformRealOrShadow));
     }
+        
 }
