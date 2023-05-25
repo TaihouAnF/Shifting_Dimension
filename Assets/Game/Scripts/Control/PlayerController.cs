@@ -53,6 +53,14 @@ public class PlayerController : MonoBehaviour
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
+        if (Mathf.Abs(playerRb.velocity.x) > 0 && isGrounded)
+        {
+            audioManager.PlayRunAudio();
+        }
+        else
+        {
+            audioManager.StopRunAudio();
+        }
 
         if (playerRb.velocity.x < 0)
         {
@@ -62,6 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             playerSpriteRen.flipX = false;
         }
+
         #endregion
 
         #region JUMP

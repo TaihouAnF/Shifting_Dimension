@@ -8,11 +8,21 @@ namespace Audio
     {
 
         [SerializeField] AudioSource jumpAudio;
-
+        [SerializeField] AudioSource runAudio;
 
         public void PlayJumpAudio()
         {
             jumpAudio.Play();
+        }
+
+        public void PlayRunAudio()
+        {
+            runAudio.Play();
+        }
+
+        public void StopRunAudio()
+        {
+            runAudio.Stop();
         }
     }
 }
