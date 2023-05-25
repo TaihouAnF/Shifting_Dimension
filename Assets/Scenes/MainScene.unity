@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 6.04
-    NearClipPlane: -5.2
+    NearClipPlane: 0.001
     FarClipPlane: 69.4
     Dutch: 0
     ModeOverride: 0
@@ -1342,10 +1342,10 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -5.2
+  near clip plane: 0.001
   far clip plane: 69.4
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 6.04
   m_Depth: -1
   m_CullingMask:
@@ -1697,10 +1697,6 @@ PrefabInstance:
     - target: {fileID: 911304372428137551, guid: daf25be311e7d754f8f5fd93364e504d, type: 3}
       propertyPath: m_Name
       value: ShadowPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 911304372428137551, guid: daf25be311e7d754f8f5fd93364e504d, type: 3}
-      propertyPath: m_TagString
-      value: WalkableR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf25be311e7d754f8f5fd93364e504d, type: 3}

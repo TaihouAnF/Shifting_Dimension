@@ -47,22 +47,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        UpdateAnimator();
         isGrounded = OnTheGround();
         
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
-
-        //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("RunIdleTrans"))
-        //{
-        //    runIdleIsPlayying = true;
-        //    if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        //        runIdleIsPlayying = false;
-        //}
-        //playerAnim.SetBool("RunIdlePlayying", runIdleIsPlayying);
 
         if (playerRb.velocity.x < 0)
         {
@@ -81,9 +71,6 @@ public class PlayerController : MonoBehaviour
             audioManager.PlayJumpAudio();
             playerRb.velocity = new Vector3(playerRb.velocity.x, jumpForce, 0);
             isGrounded = false;
-            // Animation
-            playerAnim.SetBool("Grounded", isGrounded);
-            playerAnim.SetFloat("Yvelocity", playerRb.velocity.y);
         }
         #endregion
 
@@ -107,31 +94,13 @@ public class PlayerController : MonoBehaviour
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3.5f, 1 << 8))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3.5f, 1 << 8))
         {
-            if (hit.collider.gameObject.CompareTag("Walkable"))
-            {
-                return true;
-            }
-            else if ((hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
-                     (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow)) 
-            {
-                return true;
-            }
-            else
-            { 
-                return false;
-            }
+            return hit.collider.gameObject.CompareTag("Walkable") ||
+                   (hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
+                   (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow);
         }
         return false;
                
     }
-
-    void UpdateAnimator()
-    {
-        GetComponent<AnimatorColtroller>().UpdateRunningAnimation(Mathf.Abs(playerRb.velocity.x));
-
-    }
-
 }
