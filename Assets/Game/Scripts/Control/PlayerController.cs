@@ -5,6 +5,7 @@ using UnityEditor.Build.Content;
 using UnityEngine;
 using Audio;
 using UnityEditor.Experimental.GraphView;
+using AnimatorController;
 
 public class PlayerController : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        UpdateAnimator();
         isGrounded = OnTheGround();
         
         #region IDLE & RUN
@@ -106,6 +109,12 @@ public class PlayerController : MonoBehaviour
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
         return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8) && playerRb.velocity.y == 0f;
+    }
+
+    void UpdateAnimator()
+    {
+        GetComponent<AnimatorColtroller>().UpdateRunningAnimation(Mathf.Abs(playerRb.velocity.x));
+
     }
 
 }

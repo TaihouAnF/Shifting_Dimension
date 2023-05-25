@@ -296,6 +296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dd361e044983164caf11778b92b1060, type: 3}
+--- !u!1 &367133485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3020219456314062485, guid: 54a545912e3b23549af2604c5c0ab87a, type: 3}
+  m_PrefabInstance: {fileID: 964476175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390373794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5260281046288234582, guid: 54a545912e3b23549af2604c5c0ab87a, type: 3}
@@ -355,7 +360,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.23272052, g: 0.13866144, b: 0.7169812, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -742,6 +747,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7704254858712176050, guid: 54a545912e3b23549af2604c5c0ab87a, type: 3}
   m_PrefabInstance: {fileID: 964476175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1242952453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367133485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f421ee53bcc22dd4d87fef62e727890c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 390373797}
 --- !u!1 &1255118670
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,8 +959,8 @@ Camera:
   m_GameObject: {fileID: 1317880286}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.14498042, g: 0.15463687, b: 0.16981131, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
