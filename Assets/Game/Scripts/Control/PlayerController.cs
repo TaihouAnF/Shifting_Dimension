@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = OnTheGround();
-        //UpdateAnimator();
         
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
