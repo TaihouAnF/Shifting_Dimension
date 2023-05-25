@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;    // Player Animation for running/jumping/switching
     private AudioSource playerAudi; // Player Audio when running/jumping/switching
     public float gravityMulti;
+    //private bool runIdleIsPlayying; 
 
-    
+
     // private GameManagerDependencyInfo gameManager; // A game manager for getting status of the player /* Uncomment it if we have one */
 
 
@@ -46,10 +47,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = OnTheGround();
-
+        
+        #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
+        //playerAnim.SetFloat("Speed", Mathf.Abs(playerRb.velocity.x));
+
+        //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("RunIdleTrans"))
+        //{
+        //    runIdleIsPlayying = true;
+        //    if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        //        runIdleIsPlayying = false;
+        //}
+        //playerAnim.SetBool("RunIdlePlayying", runIdleIsPlayying);
+
         if (playerRb.velocity.x < 0)
         {
             playerSpriteRen.flipX = true;
@@ -58,15 +70,22 @@ public class PlayerController : MonoBehaviour
         {
             playerSpriteRen.flipX = false;
         }
+        #endregion
 
+        #region JUMP
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             audioManager.PlayJumpAudio();
             playerRb.velocity = new Vector3(playerRb.velocity.x, jumpForce, 0);
             isGrounded = false;
+            // Animation
+            playerAnim.SetBool("Grounded", isGrounded);
+            playerAnim.SetFloat("Yvelocity", playerRb.velocity.y);
         }
+        #endregion
 
+        #region SWITCH
         // Switching, the player would be blue
         if (Input.GetKeyDown(KeyCode.E)) 
         {
@@ -81,12 +100,12 @@ public class PlayerController : MonoBehaviour
                 playerSpriteRen.color = new Color(1f, 1f, 1f);
             }
         }
-
+        #endregion
     }
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
-        return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8);
+        return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8) && playerRb.velocity.y == 0f;
     }
 
 }
