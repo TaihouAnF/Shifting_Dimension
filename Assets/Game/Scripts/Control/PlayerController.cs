@@ -54,14 +54,6 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
 
-        //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("RunIdleTrans"))
-        //{
-        //    runIdleIsPlayying = true;
-        //    if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        //        runIdleIsPlayying = false;
-        //}
-        //playerAnim.SetBool("RunIdlePlayying", runIdleIsPlayying);
-
         if (playerRb.velocity.x < 0)
         {
             playerSpriteRen.flipX = true;
