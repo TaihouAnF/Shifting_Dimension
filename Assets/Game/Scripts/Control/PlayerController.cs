@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = OnTheGround();
-        //UpdateAnimator();
         
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
@@ -103,32 +102,13 @@ public class PlayerController : MonoBehaviour
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3.5f, 1 << 8))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3.5f, 1 << 8))
         {
-            if (hit.collider.gameObject.CompareTag("Walkable"))
-            {
-                return true;
-            }
-            else if ((hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
-                     (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow)) 
-            {
-                return true;
-            }
-            else
-            { 
-                return false;
-            }
+            return hit.collider.gameObject.CompareTag("Walkable") ||
+                   (hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
+                   (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow);
         }
         return false;
                
     }
-
-    //void UpdateAnimator()
-    //{
-    //    GetComponent<AnimatorColtroller>().UpdateRunningAnimation(Mathf.Abs(playerRb.velocity.x));
-    //    //GetComponent<AnimatorColtroller>().UpdateJumpingAnimation(playerRb.velocity.y, isGrounded);
-
-    //}
-
 }
