@@ -7,10 +7,12 @@ public class PlatformController : MonoBehaviour
     public bool platformRealOrShadow;           // Indicate this platform whether it's real or shadow
     private MeshRenderer meshRenderer;
     private GameObject player;
+    private BoxCollider boxCollider;
     // Start is called before the first frame update
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        boxCollider= GetComponent<BoxCollider>();
         player = GameObject.Find("Player");
     }
 
@@ -24,6 +26,7 @@ public class PlatformController : MonoBehaviour
             Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, 1f);
             meshRenderer.material.color = color;
+            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, false);
         }
         else if (player.GetComponent<PlayerController>().realOrShadow && 
             platformRealOrShadow)
@@ -31,6 +34,7 @@ public class PlatformController : MonoBehaviour
             Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, 1f);
             meshRenderer.material.color = color;
+            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, false);
         }
         else if (player.GetComponent<PlayerController>().realOrShadow &&
             !platformRealOrShadow)
@@ -38,12 +42,14 @@ public class PlatformController : MonoBehaviour
             Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, 0.5f);
             meshRenderer.material.color = color;
+            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider);
         }
         else
         {
             Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, 0.5f);
             meshRenderer.material.color = color;
+            Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider);
         }
     }
 }

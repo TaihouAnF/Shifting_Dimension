@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Walkable
+  - WalkableS
   layers:
   - Default
   - TransparentFX

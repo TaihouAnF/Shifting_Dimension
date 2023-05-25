@@ -88,4 +88,24 @@ public class PlayerController : MonoBehaviour
     {
         return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Walkable") && !realOrShadow)
+    //    {
+    //        Physics.IgnoreCollision(GetComponent<BoxCollider>(), collision.gameObject.GetComponent<BoxCollider>());
+    //    }
+    //    else if (collision.gameObject.CompareTag("WalkableS") && realOrShadow)
+    //    {
+    //        Physics.IgnoreCollision(GetComponent<BoxCollider>(), collision.gameObject.GetComponent<BoxCollider>());
+    //    }
+    //    else if (collision.gameObject.CompareTag("Walkable") && realOrShadow)
+    //    {
+    //        Physics.IgnoreCollision(GetComponent<BoxCollider>(), collision.gameObject.GetComponent<BoxCollider>(), false);
+    //    }
+    //    else
+    //    {
+    //        Physics.IgnoreCollision(GetComponent<BoxCollider>(), collision.gameObject.GetComponent<BoxCollider>(), false);
+    //    }
+    //}
 }
