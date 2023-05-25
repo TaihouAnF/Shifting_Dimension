@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
-        //playerAnim.SetFloat("Speed", Mathf.Abs(playerRb.velocity.x));
 
         //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("RunIdleTrans"))
         //{
@@ -108,7 +107,25 @@ public class PlayerController : MonoBehaviour
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
     {
-        return Physics.Raycast(transform.position, Vector3.down, out _, 3.5f, 1 << 8) && playerRb.velocity.y == 0f;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3.5f, 1 << 8))
+        {
+            if (hit.collider.gameObject.CompareTag("Walkable"))
+            {
+                return true;
+            }
+            else if ((hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
+                     (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow)) 
+            {
+                return true;
+            }
+            else
+            { 
+                return false;
+            }
+        }
+        return false;
+               
     }
 
     void UpdateAnimator()

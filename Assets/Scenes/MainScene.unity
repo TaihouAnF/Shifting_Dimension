@@ -1235,6 +1235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShadowPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 911304372428137551, guid: daf25be311e7d754f8f5fd93364e504d, type: 3}
+      propertyPath: m_TagString
+      value: WalkableR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf25be311e7d754f8f5fd93364e504d, type: 3}
 --- !u!1001 &6236520783089784469
