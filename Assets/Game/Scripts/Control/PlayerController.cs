@@ -13,18 +13,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;         // Jump force on the player, can be set on inspector
     public bool isGameOver = false; // Flag to gameover or not
     public bool realOrShadow = true; // Flag to indicate dimension, true is real; false is shadow
-    public float speedThreshold;    // A Threshold to detect whether it's running or not
     public SpriteRenderer playerSpriteRen;
     public bool isGrounded = true;
-    AudioManager audioManager;
     
-    public AudioClip runSound;      // Sound Clip for running
-    public AudioClip switchSound;   // Sound Clip for switching dimension
-    public AudioClip dyingSound;    // Sound Clip for dying
+    
+    public ParticleSystem shadowNotification;
 
-    private Rigidbody playerRb; // Player Rigidbody
+    private AudioManager audioManager;  // AudioManager
+    private Rigidbody playerRb;     // Player Rigidbody
     private Animator playerAnim;    // Player Animation for running/jumping/switching
-    private AudioSource playerAudi; // Player Audio when running/jumping/switching
     public float gravityMulti;
     //private bool runIdleIsPlayying; 
 
@@ -39,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-        playerAudi = GetComponent<AudioSource>();
         Physics.gravity *= gravityMulti;
         // gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); /* Uncomment it if we have one */
     }
@@ -48,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = OnTheGround();
-        
+
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -91,11 +87,13 @@ public class PlayerController : MonoBehaviour
             {
                 realOrShadow = false;
                 playerSpriteRen.color = new Color(0.5f, 0.5f, 1f);
+                shadowNotification.Play();
             }
             else
             {
                 realOrShadow = true;
                 playerSpriteRen.color = new Color(1f, 1f, 1f);
+                shadowNotification.Stop();
             }
         }
         #endregion
