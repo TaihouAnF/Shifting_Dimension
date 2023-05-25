@@ -47,9 +47,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        UpdateAnimator();
         isGrounded = OnTheGround();
+        //UpdateAnimator();
         
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
@@ -81,9 +80,6 @@ public class PlayerController : MonoBehaviour
             audioManager.PlayJumpAudio();
             playerRb.velocity = new Vector3(playerRb.velocity.x, jumpForce, 0);
             isGrounded = false;
-            // Animation
-            playerAnim.SetBool("Grounded", isGrounded);
-            playerAnim.SetFloat("Yvelocity", playerRb.velocity.y);
         }
         #endregion
 
@@ -128,10 +124,11 @@ public class PlayerController : MonoBehaviour
                
     }
 
-    void UpdateAnimator()
-    {
-        GetComponent<AnimatorColtroller>().UpdateRunningAnimation(Mathf.Abs(playerRb.velocity.x));
+    //void UpdateAnimator()
+    //{
+    //    GetComponent<AnimatorColtroller>().UpdateRunningAnimation(Mathf.Abs(playerRb.velocity.x));
+    //    //GetComponent<AnimatorColtroller>().UpdateJumpingAnimation(playerRb.velocity.y, isGrounded);
 
-    }
+    //}
 
 }
