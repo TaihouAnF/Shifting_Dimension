@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7210374553455022461}
   - component: {fileID: 7210374553455022462}
   - component: {fileID: 7896184488657306765}
+  - component: {fileID: 1391842653}
   m_Layer: 0
   m_Name: Server_1
-  m_TagString: Untagged
+  m_TagString: WalkableR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,4 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ea0f8aae4219449b8df845a9ab8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformRealOrShadow: 0
+  platformRealOrShadow: 1
+--- !u!65 &1391842653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210374553455022400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007416399, y: 0.0023352264, z: 0.00738282}
+  m_Center: {x: 0.00004277483, y: 2.9103828e-10, z: -0.000054082248}
