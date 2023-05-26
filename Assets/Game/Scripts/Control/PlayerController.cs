@@ -48,10 +48,6 @@ public class PlayerController : MonoBehaviour
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
         float horizontalInput = Input.GetAxis("Horizontal");
-        if(playerRb == null)
-        {
-            print("where");
-        }
         playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
         // if (Mathf.Abs(playerRb.velocity.x) > 0 && isGrounded)
         // {
