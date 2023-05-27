@@ -1317,6 +1317,23 @@ Transform:
   m_Father: {fileID: 2006192972}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 86.683, y: 0, z: 0}
+--- !u!1 &2136696335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4121096786084275426, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+  m_PrefabInstance: {fileID: 4121096786240234779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136696340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136696335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727ef834210e2f441871d3abd498aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &911304372416355099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,6 +1398,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 89614289}
     m_Modifications:
+    - target: {fileID: 2954443736878241488, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
+      propertyPath: far clip plane
+      value: 62.99
+      objectReference: {fileID: 0}
     - target: {fileID: 2954443736878241488, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
       propertyPath: near clip plane
       value: 0.001
@@ -1490,9 +1511,25 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1242952449}
+    - target: {fileID: 4121096786084275425, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 62.99
+      objectReference: {fileID: 0}
     - target: {fileID: 4121096786084275426, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
       propertyPath: m_Name
       value: CM vcam1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121096786084275428, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+      propertyPath: BlockCount
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121096786084275429, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121096786084275430, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+      propertyPath: far clip plane
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
