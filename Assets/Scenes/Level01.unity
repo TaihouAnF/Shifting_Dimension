@@ -8054,6 +8054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1242952452, guid: 54a545912e3b23549af2604c5c0ab87a, type: 3}
+      propertyPath: bottomThreshold
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 3020219456314062485, guid: 54a545912e3b23549af2604c5c0ab87a, type: 3}
       propertyPath: m_Name
       value: Player

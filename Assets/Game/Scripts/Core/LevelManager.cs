@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public TextMeshProUGUI switchSceneText;
     public bool readyToNext;
+    private PlayerController player;
     
     
     protected virtual void Awake()
@@ -23,10 +24,16 @@ public class LevelManager : MonoBehaviour
     {
         readyToNext = false;
         switchSceneText.gameObject.SetActive(false);
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Update()
     {
+        if (player.isGameOver)
+        {
+            RestartScene();
+        }
+
         if (readyToNext)
         {
             switchSceneText.gameObject.SetActive(true);
@@ -35,11 +42,18 @@ public class LevelManager : MonoBehaviour
                 LoadNextLevel();
             }
         }
+
+        
     }
 
     // This can be modified in the future if we have more levels
     public void LoadNextLevel()
     {
         SceneManager.LoadScene("Level_1");
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

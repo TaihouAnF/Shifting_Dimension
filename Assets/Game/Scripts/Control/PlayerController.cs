@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool realOrShadow = true; // Flag to indicate dimension, true is real; false is shadow
     public SpriteRenderer playerSpriteRen;
     public bool isGrounded = true;
+    [SerializeField] float bottomThreshold; // A Threshold for player falling
     
     
     public ParticleSystem shadowNotification;
@@ -44,6 +45,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = OnTheGround();
+
+        if (!isGameOver && transform.position.y <= bottomThreshold)
+        {
+            isGameOver = true;
+        }
 
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
@@ -107,7 +113,6 @@ public class PlayerController : MonoBehaviour
                    (hit.collider.gameObject.CompareTag("WalkableR") && realOrShadow) ||
                    (hit.collider.gameObject.CompareTag("WalkableS") && !realOrShadow);
         }
-        return false;
-               
+        return false; 
     }
 }
