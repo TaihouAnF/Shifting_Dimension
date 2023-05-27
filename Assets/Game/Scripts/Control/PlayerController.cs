@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-        Physics.gravity *= gravityMulti;
+        Physics.gravity = Physics.gravity.y == -17.658f ? Physics.gravity : Physics.gravity * gravityMulti;
         // gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); /* Uncomment it if we have one */
     }
 
