@@ -9465,7 +9465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2954443736878241488, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
       propertyPath: far clip plane
-      value: 69.4
+      value: 62.99
       objectReference: {fileID: 0}
     - target: {fileID: 2954443736878241488, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
       propertyPath: near clip plane
@@ -11860,6 +11860,10 @@ PrefabInstance:
     - target: {fileID: 4121096786084275425, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121096786084275425, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 62.99
       objectReference: {fileID: 0}
     - target: {fileID: 4121096786084275426, guid: 8bac3fdfad85bd640821dfcdf33dd802, type: 3}
       propertyPath: m_Name
