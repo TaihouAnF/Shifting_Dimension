@@ -9264,17 +9264,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4414406891929639665, guid: 72f13e50152f8ab44a7a575a1f8fa180, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0021999362
-      objectReference: {fileID: 0}
     - target: {fileID: 8246449086391736897, guid: 72f13e50152f8ab44a7a575a1f8fa180, type: 3}
       propertyPath: m_Name
       value: Server_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246449086391736897, guid: 72f13e50152f8ab44a7a575a1f8fa180, type: 3}
-      propertyPath: m_TagString
-      value: WalkableS
       objectReference: {fileID: 0}
     - target: {fileID: 8246449086391736902, guid: 72f13e50152f8ab44a7a575a1f8fa180, type: 3}
       propertyPath: m_RootOrder

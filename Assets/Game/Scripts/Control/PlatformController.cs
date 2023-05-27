@@ -20,7 +20,7 @@ public class PlatformController : MonoBehaviour
     void Update()
     {
         bool playerRealOrShadow = player.GetComponent<PlayerController>().realOrShadow;
-        float alphaNow = (playerRealOrShadow == platformRealOrShadow) ? 1.0f : 0.5f;
+        float alphaNow = (playerRealOrShadow == platformRealOrShadow) ? 1.0f : 0.2f;
 
         Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, alphaNow);
