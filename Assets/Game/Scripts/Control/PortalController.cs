@@ -6,6 +6,6 @@ public class PortalController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        LevelManager.Instance.LoadNextLevel();
+        LevelManager.Instance.readyToNext = true;
     }
 }
