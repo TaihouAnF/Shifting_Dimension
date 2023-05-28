@@ -23,12 +23,18 @@ namespace Audio
 
         public void PlayRunAudio()
         {
-            runAudio.Play();
+            if (!runAudio.isPlaying)
+            {
+                runAudio.Play();
+            }
         }
 
         public void StopRunAudio()
         {
-            runAudio.Stop();
+            if (runAudio.isPlaying) 
+            { 
+                runAudio.Stop();
+            }
         }
     }
 }

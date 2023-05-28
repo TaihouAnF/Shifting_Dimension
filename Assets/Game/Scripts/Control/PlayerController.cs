@@ -68,14 +68,15 @@ public class PlayerController : MonoBehaviour
 
         }
         
-        // if (Mathf.Abs(playerRb.velocity.x) > 0 && isGrounded)
-        // {
-        //     audioManager.PlayRunAudio();
-        // }
-        // else
-        // {
-        //     audioManager.StopRunAudio();
-        // }
+        // Sound effect template for running, it works fine now
+        if (Mathf.Abs(playerRb.velocity.x) > 0 && isGrounded)
+        {
+            audioManager.PlayRunAudio();
+        }
+        else
+        {
+            audioManager.StopRunAudio();
+        }
 
         if (playerRb.velocity.x < 0 &&!hasBeenHit)
         {
