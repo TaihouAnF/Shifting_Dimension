@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformController : MonoBehaviour
 {
     public bool platformRealOrShadow;           // Indicate this platform whether it's real or shadow
+    public ParticleSystem shapeParticle;
     private MeshRenderer meshRenderer;
     private GameObject player;
     private BoxCollider boxCollider;
@@ -20,13 +21,23 @@ public class PlatformController : MonoBehaviour
     void Update()
     {
         bool playerRealOrShadow = player.GetComponent<PlayerController>().realOrShadow;
-        float alphaNow = (playerRealOrShadow == platformRealOrShadow) ? 1.0f : 0.2f;
+        bool sameDimension = playerRealOrShadow == platformRealOrShadow;
+        float alphaNow = sameDimension ? 1.0f : 0.2f;
 
         Color color = new(meshRenderer.material.color.r, meshRenderer.material.color.g,
                                 meshRenderer.material.color.b, alphaNow);
         meshRenderer.material.color = color;
-        Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, 
-                                !(playerRealOrShadow == platformRealOrShadow));
+        Physics.IgnoreCollision(player.GetComponent<BoxCollider>(), boxCollider, !sameDimension);
+
+        if (!sameDimension && !shapeParticle.isPlaying)
+        {
+            shapeParticle.Play();
+        }
+        else if (sameDimension && shapeParticle.isPlaying)
+        {
+            shapeParticle.Stop();
+        }
+
     }
         
 }
