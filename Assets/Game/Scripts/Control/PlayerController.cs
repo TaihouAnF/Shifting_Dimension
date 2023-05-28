@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer playerSpriteRen;
     public bool isGrounded = true;
     [SerializeField] float bottomThreshold; // A Threshold for player falling
+    bool hasBeenHit = false;
+    [SerializeField] Vector3 hit;
+    [SerializeField] UIManager uiManager;
+    [SerializeField] GameObject gameOverPanel;
+
+    int hearts = 3;
     
     
     public ParticleSystem shadowNotification;
@@ -24,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;     // Player Rigidbody
     private Animator playerAnim;    // Player Animation for running/jumping/switching
     public float gravityMulti;
+    private object transfom;
+
     //private bool runIdleIsPlayying; 
 
 
@@ -53,8 +61,13 @@ public class PlayerController : MonoBehaviour
 
         #region IDLE & RUN
         // Movement And we want to use physics so we utilize velocity instead of translate
-        float horizontalInput = Input.GetAxis("Horizontal");
-        playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
+        if(!hasBeenHit)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
+
+        }
+        
         // if (Mathf.Abs(playerRb.velocity.x) > 0 && isGrounded)
         // {
         //     audioManager.PlayRunAudio();
@@ -64,7 +77,7 @@ public class PlayerController : MonoBehaviour
         //     audioManager.StopRunAudio();
         // }
 
-        if (playerRb.velocity.x < 0)
+        if (playerRb.velocity.x < 0 &&!hasBeenHit)
         {
             playerSpriteRen.flipX = true;
         }
@@ -103,6 +116,10 @@ public class PlayerController : MonoBehaviour
             }
         }
         #endregion
+
+        #region GameOver
+        GameOver();
+        #endregion
     }
 
     private bool OnTheGround()// this bools checks if we are on the ground, used to make sure we are not double jumping
@@ -115,4 +132,38 @@ public class PlayerController : MonoBehaviour
         }
         return false; 
     }
+
+   public void Collision()
+    {
+
+       hasBeenHit = true;
+    //    playerRb.AddForce( hit, ForceMode.Impulse);
+       StartCoroutine(ResetHitTimer());
+       hearts --;
+       uiManager.UpdateLives(hearts);
+
+       if(hearts < 1)
+       {
+        isGameOver = true;
+       }
+    }
+
+    IEnumerator ResetHitTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        hasBeenHit = false;
+
+        
+    }
+
+
+    public void GameOver()
+    {
+        if(isGameOver == true)
+        {
+            gameOverPanel.SetActive(true);
+        }
+    }
+
+    
 }
