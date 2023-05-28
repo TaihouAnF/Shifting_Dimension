@@ -8,7 +8,12 @@ Created With Microsost Image Creator (Dall-e) + Photoshop  + Pixelation Effect
 Voice on the Video Intro(part of the Team ): https://twitter.com/RalphDuke90
 
 
+Code: General Controller plus Animation code from Ethan the Hero.
+Player: Ethan the Hero: https://assetstore.unity.com/packages/2d/characters/ethan-the-hero-237992 (FREE)
+
 Level 0 assets:
+Vending Machine:
+Server:
 Corridor: https://sketchfab.com/3d-models/sci-fi-corridor-fa603622f0574fa584a5289dc506b3bd
 Sci-Fi Terminal: https://sketchfab.com/3d-models/xyz-hw-details-sci-fi-terminal-c78d4fd19dec4cdd8b47699b125532d0
 Strange Object: https://sketchfab.com/3d-models/strange-shapes-7ed5a28c8016424e821c161c87f89bd2
