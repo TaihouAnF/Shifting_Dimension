@@ -27,26 +27,27 @@ public class LevelManager : MonoBehaviour
         {
             switchSceneText.gameObject.SetActive(false);
         }
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player") ? GameObject.Find("Player").GetComponent<PlayerController>() : null;
     }
 
     void Update()
     {
-        if (player.isGameOver && SceneManager.GetActiveScene().buildIndex == 2)
+        if (player)
         {
-            RestartScene();
-        }
+            if (player.isGameOver && SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                RestartScene();
+            }
 
-        if (readyToNext)
-        {
-            switchSceneText.gameObject.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.R)) 
-            { 
-                LoadNextLevel();
+            if (readyToNext)
+            {
+                switchSceneText.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    LoadNextLevel();
+                }
             }
         }
-
-        
     }
 
     // This can be modified in the future if we have more levels

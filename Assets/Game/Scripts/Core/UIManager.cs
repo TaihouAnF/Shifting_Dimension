@@ -21,13 +21,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void LoadScene1()
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(1);
-    }
-    public void LoadScene3()
-    {
-        SceneManager.LoadScene(3);
+        levelManager.LoadNextLevel();
     }
 
     public void RestartScene()
