@@ -91,15 +91,26 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            animator.SetTrigger("Punch");
+            StartCoroutine(Punch());
+
+            
+            
+        }
+        IEnumerator Punch()
+        {
+            yield return new WaitForSeconds(0.1f);
             other.gameObject.GetComponent<PlayerController>().Collision();
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
             rb.AddExplosionForce(1000, explosionPoint.position, 5f, 0, ForceMode.Impulse);
             rb.AddExplosionForce(1000, explosionPoint.position, 5f, 50, ForceMode.Impulse);
-            
+
         }
         
     }
+
+    
 
 
 
