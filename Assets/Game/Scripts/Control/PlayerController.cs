@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        if(isGameOver == true)
+        if(isGameOver == true && gameOverPanel)
         {
             gameOverPanel.SetActive(true);
         }

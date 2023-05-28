@@ -23,13 +23,16 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         readyToNext = false;
-        switchSceneText.gameObject.SetActive(false);
+        if (switchSceneText)
+        {
+            switchSceneText.gameObject.SetActive(false);
+        }
         player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if (player.isGameOver)
+        if (player.isGameOver && SceneManager.GetActiveScene().buildIndex == 2)
         {
             RestartScene();
         }
@@ -49,7 +52,9 @@ public class LevelManager : MonoBehaviour
     // This can be modified in the future if we have more levels
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("Level_1");
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        buildIndex++;
+        SceneManager.LoadScene(buildIndex);
     }
 
     public void RestartScene()

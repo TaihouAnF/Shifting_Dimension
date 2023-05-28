@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-  public Image[] healthImage;
+    public Image[] healthImage;
+    public LevelManager levelManager;
 
 
     public void UpdateLives(int livesremaining)
@@ -27,5 +28,10 @@ public class UIManager : MonoBehaviour
     public void LoadScene3()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void RestartScene()
+    {
+        levelManager.RestartScene();
     }
 }
