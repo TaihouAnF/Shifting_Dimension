@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         // Switching, the player would be blue
         if (Input.GetKeyDown(KeyCode.E)) 
         {
+            audioManager.PlaySwitchAudio();
             if (realOrShadow)
             {
                 realOrShadow = false;
@@ -134,10 +135,9 @@ public class PlayerController : MonoBehaviour
     }
 
    public void Collision()
-    {
+   {
 
        hasBeenHit = true;
-    //    playerRb.AddForce( hit, ForceMode.Impulse);
        StartCoroutine(ResetHitTimer());
        hearts --;
        uiManager.UpdateLives(hearts);
@@ -146,14 +146,12 @@ public class PlayerController : MonoBehaviour
        {
         isGameOver = true;
        }
-    }
+   }
 
     IEnumerator ResetHitTimer()
     {
         yield return new WaitForSeconds(1f);
         hasBeenHit = false;
-
-        
     }
 
 
@@ -164,6 +162,4 @@ public class PlayerController : MonoBehaviour
             gameOverPanel.SetActive(true);
         }
     }
-
-    
 }

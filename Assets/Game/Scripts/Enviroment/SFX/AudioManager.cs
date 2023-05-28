@@ -9,10 +9,16 @@ namespace Audio
 
         [SerializeField] AudioSource jumpAudio;
         [SerializeField] AudioSource runAudio;
+        [SerializeField] AudioSource switchAudio;
 
         public void PlayJumpAudio()
         {
             jumpAudio.Play();
+        }
+
+        public void PlaySwitchAudio()
+        {
+            switchAudio.Play();
         }
 
         public void PlayRunAudio()
