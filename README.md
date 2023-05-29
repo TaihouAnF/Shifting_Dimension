@@ -5,7 +5,7 @@ CREDITS:<br />
 IMAGES FROM THE VIDEO INTO:<br />
 
 Created With Microsost Image Creator (Dall-e) + Photoshop  + Pixelation Effect<br />
-Voice on the Video Intro(part of the Team ): https://twitter.com/RalphDuke90<br />
+Voice on the Video Intro(part of the Team ) and other videos by Ralph: https://twitter.com/RalphDuke90<br />
 
 Code: General Controller plus Animation code from Ethan the Hero.<br />
 Player: Ethan the Hero: https://assetstore.unity.com/packages/2d/characters/ethan-the-hero-237992 (FREE)<br />
