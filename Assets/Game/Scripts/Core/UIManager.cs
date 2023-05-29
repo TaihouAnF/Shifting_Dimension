@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,5 +30,16 @@ public class UIManager : MonoBehaviour
     public void RestartScene()
     {
         levelManager.RestartScene();
+    }
+
+    public void ExitApplication()
+    {
+        #if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+
+        #else
+        Application.Quit();
+        #endif
+
     }
 }

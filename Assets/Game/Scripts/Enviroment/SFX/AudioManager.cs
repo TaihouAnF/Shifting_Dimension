@@ -11,6 +11,9 @@ namespace Audio
         [SerializeField] AudioSource runAudio;
         [SerializeField] AudioSource switchAudio;
         [SerializeField] AudioSource beamAudio;
+        [SerializeField] AudioSource damageTaken;
+        [SerializeField] AudioSource deathSound;
+        [SerializeField] AudioSource portalSound;
 
         public void PlayJumpAudio()
         {
@@ -40,6 +43,21 @@ namespace Audio
         public void PlayBeamAudio()
         {
             beamAudio.Play();
+        }
+
+        public void PlayDamageTakenAudio()
+        {
+            damageTaken.Play();
+        }
+
+        public void DeathSound()
+        {
+            deathSound.Play();
+        }
+
+        public void PlayPortalSound()
+        {
+            portalSound.Play();
         }
     }
 }

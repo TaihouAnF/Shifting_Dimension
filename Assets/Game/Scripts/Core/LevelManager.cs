@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,7 +45,9 @@ public class LevelManager : MonoBehaviour
                 switchSceneText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    LoadNextLevel();
+                    GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>().PlayPortalSound();
+                    StartCoroutine(LoadNextLevelAfterSound());
+                    
                 }
             }
         }
@@ -62,5 +65,12 @@ public class LevelManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator LoadNextLevelAfterSound()
+    {
+        yield return new WaitForSeconds(0.8f);
+        LoadNextLevel();
+
     }
 }

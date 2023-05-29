@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
    public void Collision()
    {
 
+       audioManager.PlayDamageTakenAudio();
        hasBeenHit = true;
        StartCoroutine(ResetHitTimer());
        hearts --;
@@ -145,7 +146,9 @@ public class PlayerController : MonoBehaviour
 
        if(hearts < 1)
        {
+        audioManager.DeathSound();
         isGameOver = true;
+        GetComponent<BoxCollider>().enabled = false;
        }
    }
 
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        if(isGameOver == true && gameOverPanel)
+        if(isGameOver == true)
         {
             gameOverPanel.SetActive(true);
         }
