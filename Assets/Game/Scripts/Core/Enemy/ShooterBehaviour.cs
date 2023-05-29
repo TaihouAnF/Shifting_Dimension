@@ -6,32 +6,41 @@ public class ShooterBehaviour : EnemyBehaviour
 {
    public GameObject projectilePrefab;
    [SerializeField] float attackSpeed;
+   float timeSinceLastAttack = 0;
+   bool canAttack = true;
 
-   public override void Start() 
-   {
-    base.Start();
-    StartCoroutine(Attack());
 
-    
-   }
-
-    
     public override void Update()
     {
-        
-        
+        Attacking();
+        AttackCoolDown();
+
     }
 
+    private void Attacking()
+    {
+        if (TargetInRange() && canAttack)
+        {
+            print("attacking");
+            canAttack = false;
+            timeSinceLastAttack = 0;
+
+        }
+        timeSinceLastAttack += Time.deltaTime;
+    }
 
     public override void OnCollisionEnter(Collision other)
     {
        
     }
 
-    IEnumerator Attack()
+    private void AttackCoolDown()
     {
-        while(TargetInRange())
-        yield return new WaitForSeconds(attackSpeed);
-        print("Attacking");
+        if(timeSinceLastAttack >= attackSpeed)
+        {
+            canAttack = true;
+        }
     }
+
+   
 }
