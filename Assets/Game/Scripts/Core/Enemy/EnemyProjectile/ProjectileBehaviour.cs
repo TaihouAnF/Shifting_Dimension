@@ -14,8 +14,10 @@ public class ProjectileBehaviour : MonoBehaviour
         Vector3 direction = target.transform.position - transform.position;
         
 
-        rb.velocity = Vector3.Normalize(direction);
-        rb.velocity *= projectileSpeed;
+         rb.velocity = (direction).normalized;
+         rb.velocity *= projectileSpeed;
+
+       
 
         
 

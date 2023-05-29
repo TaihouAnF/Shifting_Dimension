@@ -56,6 +56,7 @@ public class LevelManager : MonoBehaviour
         int buildIndex = SceneManager.GetActiveScene().buildIndex;
         buildIndex++;
         SceneManager.LoadScene(buildIndex);
+        
     }
 
     public void RestartScene()

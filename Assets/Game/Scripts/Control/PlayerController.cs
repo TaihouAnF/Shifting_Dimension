@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ResetHitTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         hasBeenHit = false;
     }
 
