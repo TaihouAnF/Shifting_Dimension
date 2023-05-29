@@ -13,14 +13,14 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] Transform explosionPoint;
     Animator animator;
 
-    private void Start() 
+    public virtual void Start() 
     {
         rb = GetComponent<Rigidbody>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
     }
 
-    private void Update()
+    public virtual void Update()
     {
         MoveTowarsPlayer();
         GoBackToStartingPoint();
@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    bool TargetInRange()
+    public bool TargetInRange()
     {
        float targetDistance = Vector3.Distance(target.position, transform.position);
 
@@ -87,7 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other) 
+    public virtual void OnCollisionEnter(Collision other) 
     {
         if(other.gameObject.tag == "Player")
         {
