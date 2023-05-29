@@ -10,6 +10,7 @@ namespace Audio
         [SerializeField] AudioSource jumpAudio;
         [SerializeField] AudioSource runAudio;
         [SerializeField] AudioSource switchAudio;
+        [SerializeField] AudioSource beamAudio;
 
         public void PlayJumpAudio()
         {
@@ -35,6 +36,10 @@ namespace Audio
             { 
                 runAudio.Stop();
             }
+        }
+        public void PlayBeamAudio()
+        {
+            beamAudio.Play();
         }
     }
 }

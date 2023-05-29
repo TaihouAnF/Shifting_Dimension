@@ -9,13 +9,20 @@ public class ProjectileBehaviour : MonoBehaviour
     [SerializeField] float projectileSpeed;
     void Start() 
     {
-        rb.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         target = GameObject.FindWithTag("Player");
         Vector3 direction = target.transform.position - transform.position;
+        
 
-        rb.AddForce(direction * projectileSpeed, ForceMode.Impulse);
+        rb.velocity = Vector3.Normalize(direction);
+        rb.velocity *= projectileSpeed;
+
+        
+
+        Destroy(gameObject, 3f);
         
     }
+    
 
     private void OnCollisionEnter(Collision other) 
     {
@@ -23,10 +30,11 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerController>().Collision();
             Destroy(gameObject);
+            
         }
         else
         Destroy(gameObject);
-        
+   
     }
 
     
