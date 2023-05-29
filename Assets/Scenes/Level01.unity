@@ -9410,6 +9410,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866050639}
     m_Modifications:
+    - target: {fileID: 2111270464, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111270464, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111270464, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eaa0b147cf305294197323bbf8573731, type: 3}
     - target: {fileID: 2954443736878241488, guid: 2f7caab88da7e7b4f933365d62b3541d, type: 3}
       propertyPath: far clip plane
       value: 62.99
