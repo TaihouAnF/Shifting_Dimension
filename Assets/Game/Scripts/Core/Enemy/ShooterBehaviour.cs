@@ -24,9 +24,17 @@ public class ShooterBehaviour : EnemyBehaviour
             print("attacking");
             canAttack = false;
             timeSinceLastAttack = 0;
+            GetComponentInChildren<Animator>().SetBool("Shooting", true);
+
+        }
+        else
+        {
+   
+            GetComponentInChildren<Animator>().SetBool("Shooting", false);
 
         }
         timeSinceLastAttack += Time.deltaTime;
+        
     }
 
     public override void OnCollisionEnter(Collision other)
