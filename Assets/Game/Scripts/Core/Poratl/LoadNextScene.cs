@@ -9,7 +9,7 @@ public class LoadNextScene : MonoBehaviour
     {
         if(other.gameObject.tag =="Player")
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(5);
         }
         
     }
