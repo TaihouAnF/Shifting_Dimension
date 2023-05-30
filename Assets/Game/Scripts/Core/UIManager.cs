@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #elif UNITY_WEBGL
-        Application.OpenURL("https://taihoudesu.itch.io/shifting-dimension")
+        Application.OpenURL("https://taihoudesu.itch.io/shifting-dimension");
 #else
         Application.Quit();
 #endif
