@@ -317,8 +317,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 586652765}
-  - component: {fileID: 586652766}
   - component: {fileID: 586652764}
+  - component: {fileID: 586652766}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
