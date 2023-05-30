@@ -7,7 +7,9 @@ using UnityEngine.Video;
 public class VideoPlayer : MonoBehaviour
 {
   [SerializeField] VideoClip video;
+  
     public LevelManager levelManager;
+    
   
 
  private void Start() 
@@ -17,6 +19,10 @@ public class VideoPlayer : MonoBehaviour
     Invoke("LoadNextScene", (float)video.length);
     
 }
+
+
+
+
 
   
 
