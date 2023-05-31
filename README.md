@@ -1,5 +1,6 @@
-# Life_In_2.5D
-Lifer_In_2D
+# Shifting_Dimensions
+This is a game for the submission of GDTV game jam 2023. The theme was "Life in 2 Dimensions".<br />
+To align with the theme, we chose making player to be able to switch "dimensions" during the gameplay and solve puzzles.
 
 CREDITS:<br />
 IMAGES FROM THE VIDEO INTO:<br />
