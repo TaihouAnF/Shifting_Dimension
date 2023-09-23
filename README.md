@@ -5,7 +5,17 @@ To align with the theme, we chose making player to be able to switch "dimensions
 You can access the game here: https://taihoudesu.itch.io/shifting-dimension<br />
 To view the rating: https://itch.io/jam/gamedevtv-jam-2023/rate/2093732<br />
 
-# CREDITS:
+# Team:
+
+- [Vandereck(Dev)](https://vandereck.itch.io/)
+
+- [Taihoudesu(Dev)(Me)](https://taihoudesu.itch.io/)
+
+- [SeymourCraig(Sound & Model)](https://seymourcraig.itch.io/)
+
+- [RDukeVO(Voice & Narrator)](https://rdukevo.itch.io/)
+
+# Credits:
 IMAGES FROM THE VIDEO INTO:<br />
 
 Created With Microsost Image Creator (Dall-e) + Photoshop  + Pixelation Effect<br />
