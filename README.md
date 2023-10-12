@@ -1,9 +1,17 @@
-# Shifting_Dimensions
-This is a game for the submission of GDTV game jam 2023. The theme was "Life in 2 Dimensions".<br />
+<div align="center">
+  
+  
+  # Shifting_Dimensions
+  
+</div>
+This is a game for the submission of GDTV game jam 2023. The theme was "Life in 2 Dimensions".  
+
 To align with the theme, we chose making player to be able to switch "dimensions" during the gameplay and solve puzzles.
 
-You can access the game here: https://taihoudesu.itch.io/shifting-dimension<br />
-To view the rating: https://itch.io/jam/gamedevtv-jam-2023/rate/2093732<br />
+You can access the game here: https://taihoudesu.itch.io/shifting-dimension  
+To view the rating: https://itch.io/jam/gamedevtv-jam-2023/rate/2093732  
+
+# Instruction
 
 # Team:
 
